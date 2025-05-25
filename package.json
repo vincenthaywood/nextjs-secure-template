@@ -1,0 +1,48 @@
+{
+  "name": "my-secure-nextjs-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "lint:security": "eslint . --ext .js,.jsx,.ts,.tsx --config .eslintrc.security.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "security:audit": "npm audit --audit-level moderate",
+    "security:audit-fix": "npm audit fix",
+    "security:check": "npm run security:audit && npm run security:deps",
+    "security:deps": "npx audit-ci --moderate",
+    "security:licenses": "npx license-checker --onlyAllow 'MIT;ISC;Apache-2.0;BSD-2-Clause;BSD-3-Clause;Unlicense'",
+    "security:snyk": "npx snyk test",
+    "security:full": "npm run security:audit && npm run security:deps && npm run security:licenses && npm run lint:security"
+  },
+  "dependencies": {
+    "next": "15.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "audit-ci": "^7.1.0",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.1",
+    "eslint-plugin-security": "^1.7.1",
+    "jest": "^29.7.0",
+    "license-checker": "^25.0.1",
+    "prettier": "^3.0.0",
+    "tailwindcss": "^4",
+    "ts-jest": "^29.3.2",
+    "typescript": "^5"
+  }
+}
